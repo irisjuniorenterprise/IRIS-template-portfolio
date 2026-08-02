@@ -1,4 +1,4 @@
-function Header() {
+function Header({onToggleTheme, isDark}) {
     return (
         <header style={{
             display: 'flex',
@@ -11,6 +11,9 @@ function Header() {
                 <a href="#projects">Projets</a>
                 <a href="#contact">Contact</a>
             </nav>
+            <button onClick={onToggleTheme}>
+                {!isDark ? '🌙 Dark' : '☀️ Light'}
+            </button>
         </header>
     );
 }
