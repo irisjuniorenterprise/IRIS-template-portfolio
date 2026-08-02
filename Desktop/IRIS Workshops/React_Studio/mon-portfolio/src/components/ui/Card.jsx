@@ -1,7 +1,10 @@
 function Card({ title, description, image, children }) {
     return (
         <div style={{
-            background: 'white',
+            background: 'var(--bg)',
+            color: 'var(--text)',
+            transition: '0.3s',
+            fontFamily: 'Montserrat, sans-serif',
             borderRadius: '12px',
             padding: '20px',
             boxShadow: '0 4px 12px rgba(0,0,0,0.08)',

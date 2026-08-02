@@ -2,7 +2,7 @@ function Button({ children, variant = 'primary', onClick }) {
     const styles = {
     primary:   { background: '#1a3969', color: 'white' },
     secondary: { background: '#ff6633', color: 'white' },
-    outline:   { background: 'transparent', border: '2px solid #1a3969' }
+    outline:   { background: 'transparent', border: '2px solid #1a3969' ,color: 'var(--text)' }
     };
     return (
         <button
