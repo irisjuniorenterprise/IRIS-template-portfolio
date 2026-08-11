@@ -1,0 +1,153 @@
+.btn {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  font-family: var(--font-body);
+  font-weight: 600;
+  border-radius: var(--radius-pill);
+  border: 1px solid transparent;
+  cursor: pointer;
+  white-space: nowrap;
+  isolation: isolate;
+  overflow: hidden;
+  transition: transform var(--t-fast) var(--ease-spring),
+    box-shadow var(--t-fast) var(--ease-standard),
+    background var(--t-fast) var(--ease-standard),
+    border-color var(--t-fast) var(--ease-standard);
+}
+
+.btn:active {
+  transform: scale(0.97);
+}
+
+.btn:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* Effet "shine" balayant le bouton au survol — ::before dédié */
+.btn::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(
+    120deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.25) 45%,
+    transparent 65%
+  );
+  transform: translateX(-120%);
+  transition: transform var(--t-slow) var(--ease-out-expo);
+}
+
+.btn:hover::before {
+  transform: translateX(120%);
+}
+
+/* Halo de focus additionnel — ::after dédié, ne perturbe pas le layout */
+.btn::after {
+  content: '';
+  position: absolute;
+  inset: -4px;
+  border-radius: inherit;
+  opacity: 0;
+  box-shadow: var(--shadow-glow-primary);
+  transition: opacity var(--t-fast) var(--ease-standard);
+}
+
+.btn:focus-visible::after {
+  opacity: 1;
+}
+
+/* ---------- Sizes ---------- */
+.sm {
+  padding: var(--space-2) var(--space-4);
+  font-size: var(--fs-sm);
+}
+
+.md {
+  padding: var(--space-3) var(--space-6);
+  font-size: var(--fs-base);
+}
+
+.lg {
+  padding: var(--space-4) var(--space-8);
+  font-size: var(--fs-md);
+}
+
+/* ---------- Variants (Strategy) ---------- */
+.primary {
+  background: var(--brand-primary);
+  color: var(--text-inverse);
+  box-shadow: var(--shadow-sm);
+}
+.primary:hover:not(:disabled) {
+  background: var(--brand-primary-hover);
+  box-shadow: var(--shadow-md);
+}
+
+.secondary {
+  background: var(--brand-secondary);
+  color: var(--color-neutral-0);
+  box-shadow: var(--shadow-glow-secondary);
+}
+.secondary:hover:not(:disabled) {
+  background: var(--brand-secondary-hover);
+}
+
+.outline {
+  background: transparent;
+  color: var(--brand-primary);
+  border-color: var(--brand-primary);
+}
+.outline:hover:not(:disabled) {
+  background: var(--color-primary-50);
+}
+
+[data-theme='dark'] .outline {
+  color: var(--text-primary);
+  border-color: var(--border-strong);
+}
+[data-theme='dark'] .outline:hover:not(:disabled) {
+  background: var(--bg-surface-alt);
+}
+
+.ghost {
+  background: transparent;
+  color: var(--text-primary);
+}
+.ghost:hover:not(:disabled) {
+  background: var(--bg-surface-alt);
+}
+
+.danger {
+  background: var(--state-danger);
+  color: var(--color-neutral-0);
+}
+.danger:hover:not(:disabled) {
+  filter: brightness(0.92);
+}
+
+.icon {
+  display: inline-flex;
+  line-height: 0;
+}
+
+.spinner {
+  width: 1em;
+  height: 1em;
+  border-radius: 50%;
+  border: 2px solid currentColor;
+  border-right-color: transparent;
+  animation: spin 0.7s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}

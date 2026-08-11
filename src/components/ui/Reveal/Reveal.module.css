@@ -1,0 +1,33 @@
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity var(--t-slow) var(--ease-out-expo),
+    transform var(--t-slow) var(--ease-out-expo);
+  transition-delay: var(--reveal-delay, 0ms);
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.fromLeft {
+  transform: translateX(-32px);
+}
+.fromLeft.visible {
+  transform: translateX(0);
+}
+
+.fromRight {
+  transform: translateX(32px);
+}
+.fromRight.visible {
+  transform: translateX(0);
+}
+
+.zoom {
+  transform: scale(0.92);
+}
+.zoom.visible {
+  transform: scale(1);
+}

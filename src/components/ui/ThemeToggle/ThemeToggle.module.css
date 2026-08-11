@@ -1,0 +1,27 @@
+.toggle {
+  position: relative;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-primary);
+  font-size: 1.2rem;
+  transition: background var(--t-fast) var(--ease-standard), transform var(--t-fast) var(--ease-spring);
+}
+
+.toggle:hover {
+  background: var(--bg-surface-alt);
+  transform: rotate(-12deg);
+}
+
+.icon {
+  position: absolute;
+  transition: opacity var(--t-base) var(--ease-out-expo), transform var(--t-base) var(--ease-out-expo);
+}
+
+.hidden {
+  opacity: 0;
+  transform: scale(0.4) rotate(90deg);
+}

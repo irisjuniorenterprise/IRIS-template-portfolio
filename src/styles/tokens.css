@@ -1,0 +1,161 @@
+/* ============================================================
+   DESIGN TOKENS — Source unique de vérité
+   Basé sur la charte IRIS, enrichi pour un rendu premium.
+   Ne jamais coder une couleur/dimension "en dur" ailleurs :
+   toujours passer par ces variables.
+   ============================================================ */
+
+:root {
+  /* ---------- Couleurs de marque ---------- */
+  --color-primary-50: #eef3fa;
+  --color-primary-100: #d4e0f0;
+  --color-primary-300: #6f8db8;
+  --color-primary-500: #1a3969;
+  --color-primary-600: #12284a;
+  --color-primary-700: #0d2036;
+  --color-primary-900: #071322;
+
+  --color-secondary-300: #ffab8a;
+  --color-secondary-500: #ff6633;
+  --color-secondary-600: #e55a2b;
+  --color-secondary-700: #c94a21;
+
+  --color-accent-300: #a4dcf0;
+  --color-accent-500: #5ab8de;
+  --color-accent-600: #48a4c9;
+
+  /* ---------- Neutrals ---------- */
+  --color-neutral-0: #ffffff;
+  --color-neutral-50: #f8fafc;
+  --color-neutral-100: #f1f5f9;
+  --color-neutral-200: #e5e7eb;
+  --color-neutral-300: #d1d5db;
+  --color-neutral-400: #9ca3af;
+  --color-neutral-500: #6b7280;
+  --color-neutral-700: #374151;
+  --color-neutral-800: #1f2937;
+  --color-neutral-900: #0f172a;
+  --color-neutral-950: #060a13;
+
+  /* ---------- Sémantique (mode clair, redéfini par [data-theme="dark"]) ---------- */
+  --bg-base: var(--color-neutral-50);
+  --bg-surface: var(--color-neutral-0);
+  --bg-surface-alt: var(--color-neutral-100);
+  --bg-hero: linear-gradient(135deg, #15426c 0%, #0d2644 60%, #071322 100%);
+  --bg-inverse: var(--color-neutral-900);
+
+  --text-primary: var(--color-neutral-800);
+  --text-secondary: var(--color-neutral-500);
+  --text-muted: var(--color-neutral-400);
+  --text-inverse: var(--color-neutral-0);
+
+  --border-default: var(--color-neutral-200);
+  --border-strong: var(--color-neutral-300);
+
+  --brand-primary: var(--color-primary-500);
+  --brand-primary-hover: var(--color-primary-600);
+  --brand-secondary: var(--color-secondary-500);
+  --brand-secondary-hover: var(--color-secondary-600);
+  --brand-accent: var(--color-accent-500);
+
+  --state-success: #22c55e;
+  --state-info: #0ea5e9;
+  --state-warning: #f59e0b;
+  --state-danger: #ef4444;
+
+  /* ---------- Typographie ---------- */
+  --font-display: 'Montserrat', system-ui, sans-serif;
+  --font-body: 'Inter', 'Montserrat', system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
+
+  --fs-xs: 0.75rem;
+  --fs-sm: 0.875rem;
+  --fs-base: 1rem;
+  --fs-md: 1.125rem;
+  --fs-lg: 1.25rem;
+  --fs-xl: 1.5rem;
+  --fs-2xl: clamp(1.75rem, 3vw, 2.25rem);
+  --fs-3xl: clamp(2.25rem, 4.5vw, 3.25rem);
+  --fs-4xl: clamp(2.75rem, 6vw, 4.25rem);
+
+  --lh-tight: 1.15;
+  --lh-normal: 1.5;
+  --lh-relaxed: 1.75;
+
+  /* ---------- Spacing scale (base 4px) ---------- */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.5rem;
+  --space-6: 2rem;
+  --space-8: 3rem;
+  --space-10: 4rem;
+  --space-12: 6rem;
+  --space-16: 8rem;
+
+  /* ---------- Radius ---------- */
+  --radius-xs: 6px;
+  --radius-sm: 10px;
+  --radius-md: 16px;
+  --radius-lg: 24px;
+  --radius-pill: 999px;
+
+  /* ---------- Elevation (shadows) ---------- */
+  --shadow-color: 222deg 47% 10%;
+  --shadow-xs: 0 1px 2px hsl(var(--shadow-color) / 0.06);
+  --shadow-sm: 0 2px 8px hsl(var(--shadow-color) / 0.08);
+  --shadow-md: 0 8px 24px hsl(var(--shadow-color) / 0.12);
+  --shadow-lg: 0 16px 48px hsl(var(--shadow-color) / 0.16);
+  --shadow-glow-primary: 0 0 0 4px hsl(213deg 61% 27% / 0.15);
+  --shadow-glow-secondary: 0 8px 22px -6px hsl(16deg 100% 60% / 0.55);
+
+  /* ---------- Layout ---------- */
+  --container-max: 1280px;
+  --container-narrow: 860px;
+  --header-h: 76px;
+  --header-h-mobile: 64px;
+
+  /* ---------- Z-index scale ---------- */
+  --z-base: 1;
+  --z-dropdown: 20;
+  --z-sticky: 60;
+  --z-overlay: 80;
+  --z-modal: 100;
+  --z-toast: 120;
+
+  /* ---------- Motion ---------- */
+  --ease-standard: cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --t-fast: 180ms;
+  --t-base: 320ms;
+  --t-slow: 560ms;
+}
+
+/* ---------- Thème sombre : on redéfinit uniquement la couche sémantique ---------- */
+[data-theme='dark'] {
+  --bg-base: var(--color-neutral-950);
+  --bg-surface: var(--color-neutral-900);
+  --bg-surface-alt: #101a2c;
+  --bg-inverse: var(--color-neutral-50);
+
+  --text-primary: var(--color-neutral-50);
+  --text-secondary: #a3b0c2;
+  --text-muted: #6b7788;
+  --text-inverse: var(--color-neutral-900);
+
+  --border-default: #1f2c40;
+  --border-strong: #2d3d57;
+
+  --shadow-color: 222deg 60% 2%;
+}
+
+/* Respect des préférences système si l'utilisateur n'a rien choisi explicitement */
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --t-fast: 0.01ms;
+    --t-base: 0.01ms;
+    --t-slow: 0.01ms;
+  }
+}

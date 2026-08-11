@@ -1,0 +1,85 @@
+.field {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.inputWrap {
+  position: relative;
+}
+
+.input {
+  width: 100%;
+  padding: var(--space-5) var(--space-4) var(--space-2);
+  background: var(--bg-surface);
+  border: 1.5px solid var(--border-default);
+  border-radius: var(--radius-sm);
+  font-size: var(--fs-base);
+  color: var(--text-primary);
+  transition: border-color var(--t-fast) var(--ease-standard),
+    box-shadow var(--t-fast) var(--ease-standard);
+}
+
+.input:hover {
+  border-color: var(--border-strong);
+}
+
+.input:focus {
+  outline: none;
+  border-color: var(--brand-primary);
+  box-shadow: var(--shadow-glow-primary);
+}
+
+.label {
+  position: absolute;
+  left: var(--space-4);
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: var(--fs-base);
+  color: var(--text-muted);
+  pointer-events: none;
+  transition: transform var(--t-fast) var(--ease-out-expo),
+    font-size var(--t-fast) var(--ease-out-expo),
+    color var(--t-fast) var(--ease-standard);
+  transform-origin: left top;
+}
+
+.input:focus ~ .label,
+.filled ~ .label {
+  transform: translateY(-13px) scale(0.78);
+  color: var(--brand-primary);
+}
+
+/* Petit repère visuel sous le label flottant une fois actif — ::after */
+.label::after {
+  content: '';
+  position: absolute;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  height: 6px;
+  background: var(--bg-surface);
+  z-index: -1;
+  opacity: 0;
+}
+
+.input:focus ~ .label::after,
+.filled ~ .label::after {
+  opacity: 1;
+}
+
+.hint {
+  margin-top: var(--space-1);
+  font-size: var(--fs-xs);
+  color: var(--text-muted);
+}
+
+.errorText {
+  margin-top: var(--space-1);
+  font-size: var(--fs-xs);
+  color: var(--state-danger);
+}
+
+.hasError .input {
+  border-color: var(--state-danger);
+}

@@ -1,0 +1,85 @@
+.card {
+  position: relative;
+  background: var(--bg-surface);
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-xs);
+  overflow: hidden;
+  transition: transform var(--t-base) var(--ease-out-expo),
+    box-shadow var(--t-base) var(--ease-out-expo),
+    border-color var(--t-base) var(--ease-standard);
+}
+
+.interactive:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-lg);
+  border-color: var(--border-strong);
+}
+
+/* Liseré dégradé animé en haut de carte — ::before */
+.card::before {
+  content: '';
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--brand-primary), var(--brand-accent), var(--brand-secondary));
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform var(--t-slow) var(--ease-out-expo);
+}
+
+.interactive:hover::before {
+  transform: scaleX(1);
+}
+
+/* Voile radial suivant le hover pour un effet "spotlight" subtil — ::after */
+.card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    240px circle at var(--mx, 50%) var(--my, 50%),
+    hsl(213deg 61% 40% / 0.08),
+    transparent 70%
+  );
+  opacity: 0;
+  transition: opacity var(--t-fast) var(--ease-standard);
+  pointer-events: none;
+}
+
+.interactive:hover::after {
+  opacity: 1;
+}
+
+.media {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  background: var(--bg-surface-alt);
+}
+
+.media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--t-slow) var(--ease-out-expo);
+}
+
+.interactive:hover .media img {
+  transform: scale(1.06);
+}
+
+.body {
+  padding: var(--space-5);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.footer {
+  padding: var(--space-4) var(--space-5);
+  border-top: 1px solid var(--border-default);
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
