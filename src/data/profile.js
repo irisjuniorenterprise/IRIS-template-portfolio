@@ -7,7 +7,7 @@
 export const profile = {
   name: 'Consultant X',
   role: 'Consultant Junior à IRIS Junior Création',
-  tagline: 'Je conçois des applications web',
+  tagline: 'Je conçois des sites web',
   location: 'Sfax, Tunisie',
   email: 'contact@gmail.com',
   social: [
